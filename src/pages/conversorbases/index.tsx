@@ -137,13 +137,14 @@ const BaseConverter: NextPage = () => {
             <select
               value={conversionMode.from}
               onChange={(event) => {
-                const [, setConversionFrom] = objectChildState(
+                const [conversionFrom, setConversionFrom] = objectChildState(
                   [conversionMode, setConversionMode],
                   "from"
                 );
                 setInputValue(
                   convertValueToBase(event.target.value as BasesTypes)
                 );
+                // @ts-ignore
                 setConversionFrom(
                   event.target.value as SetStateAction<BasesTypes>
                 );
@@ -160,10 +161,11 @@ const BaseConverter: NextPage = () => {
             <select
               value={conversionMode.to}
               onChange={(event) => {
-                const [, setConversionTo] = objectChildState(
+                const [conversionTo, setConversionTo] = objectChildState(
                   [conversionMode, setConversionMode],
                   "to"
                 );
+                // @ts-ignore
                 setConversionTo(
                   event.target.value as SetStateAction<BasesTypes>
                 );

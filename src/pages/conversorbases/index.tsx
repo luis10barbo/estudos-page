@@ -144,7 +144,7 @@ const BaseConverter: NextPage = () => {
                 setInputValue(
                   convertValueToBase(event.target.value as BasesTypes)
                 );
-                // @ts-ignore
+
                 setConversionFrom(
                   event.target.value as SetStateAction<BasesTypes>
                 );
@@ -165,7 +165,7 @@ const BaseConverter: NextPage = () => {
                   [conversionMode, setConversionMode],
                   "to"
                 );
-                // @ts-ignore
+
                 setConversionTo(
                   event.target.value as SetStateAction<BasesTypes>
                 );

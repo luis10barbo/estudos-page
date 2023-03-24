@@ -108,7 +108,7 @@ const BaseConverter: NextPage = () => {
     const currentInt = parseInt(inputValue);
     return currentInt.toString(getBase(base));
   }
-
+  useEffect(() =>{ if(inputRef.current) return inputRef.current.focus()}, [])
   useEffect(() => {
     runConvertion();
   }, [inputValue, conversionMode]);

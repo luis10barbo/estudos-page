@@ -149,7 +149,7 @@ const BaseConverter: NextPage = () => {
                   event.target.value as SetStateAction<BasesTypes>
                 );
               }}
-              className="rounded-md border bg-transparent bg-white p-2"
+              className="rounded-md  border border-[rgba(0,0,0,0.5)] bg-transparent bg-white p-2"
             >
               <option value={"decimal"}>Decimal</option>
               <option value={"binary"}>Binario</option>
@@ -170,7 +170,7 @@ const BaseConverter: NextPage = () => {
                   event.target.value as SetStateAction<BasesTypes>
                 );
               }}
-              className="rounded-md border bg-transparent bg-white p-2"
+              className="rounded-md  border border-[rgba(0,0,0,0.5)] bg-transparent bg-white p-2"
             >
               <option value={"decimal"}>Decimal</option>
               <option value={"binary"}>Binario</option>
@@ -178,7 +178,7 @@ const BaseConverter: NextPage = () => {
             </select>
           </p>
         </div>
-        <div className="mt-4 flex w-full flex-col  gap-8 rounded-lg border-t p-12">
+        <div className="mt-4 flex w-full flex-col  gap-8 rounded-lg border-t border-[rgba(0,0,0,0.5)] p-12">
           <div
             id="typing-restriction"
             className="flex w-full items-center justify-center gap-2"
@@ -198,7 +198,7 @@ const BaseConverter: NextPage = () => {
 
           <div className=" flex w-full flex-nowrap justify-center gap-2 ">
             <button
-              className="rounded-lg border bg-white py-1 px-4"
+              className="rounded-lg  border border-[rgba(0,0,0,0.5)] bg-white py-1 px-4"
               onClick={() => {
                 addNumberToInput(-1);
               }}
@@ -207,7 +207,7 @@ const BaseConverter: NextPage = () => {
             </button>
             <input
               id="decimal-string"
-              className=" rounded-lg border p-2 text-center outline-none"
+              className=" rounded-lg  border border-[rgba(0,0,0,0.5)] p-2 text-center outline-none"
               type="text"
               style={{ width: "10rem" }}
               value={inputValue}
@@ -218,7 +218,7 @@ const BaseConverter: NextPage = () => {
               ref={inputRef}
             />
             <button
-              className="rounded-lg border bg-white py-1 px-4"
+              className="rounded-lg  border border-[rgba(0,0,0,0.5)] bg-white py-1 px-4"
               onClick={() => {
                 addNumberToInput(1);
               }}
@@ -234,7 +234,7 @@ const BaseConverter: NextPage = () => {
             <div className="flex w-full justify-center gap-1 ">
               {conversionResult.map((currentChar, index) => (
                 <div
-                  className="rounded-lg border bg-white py-2 px-4 "
+                  className="rounded-lg  border border-[rgba(0,0,0,0.5)] bg-white py-2 px-4 "
                   key={index}
                 >
                   {currentChar}
@@ -245,7 +245,7 @@ const BaseConverter: NextPage = () => {
         </div>
       </div>
 
-      <div className="explanation mb-4 flex w-full flex-col items-center gap-4 border-t p-4 text-center">
+      <div className="explanation mb-4 flex w-full flex-col items-center gap-4 border-t border-[rgba(0,0,0,0.5)] p-4 text-center">
         <p className="font-bold">Explicação Binario:</p> <br />
         Cada quadradinho no binário, <br />
         diferente do decimal, que pode conter algarísmos entre 0-9,
@@ -253,14 +253,14 @@ const BaseConverter: NextPage = () => {
         somente pode conter dois números, 0 ou 1
         <div className="flex items-center gap-2">
           ex:
-          <div className="binary-number rounded-lg border py-2 px-4">1</div>
+          <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">1</div>
           (decimal) é equivalente a
-          <div className="binary-number rounded-lg border py-2 px-4">1</div>
+          <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">1</div>
           (binario), <br />
         </div>
         <div className="flex items-center gap-2">
           mas para o
-          <div className="binary-number rounded-lg border py-2 px-4">2</div>
+          <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">2</div>
           (decimal) é necessario adicionar +1 quadradinho:
         </div>
         {[
@@ -274,14 +274,14 @@ const BaseConverter: NextPage = () => {
               className="flex items-center gap-2 rounded-lg bg-black/80 p-2 text-white"
               key={index}
             >
-              <div className="binary-number rounded-lg border py-2 px-4">
+              <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">
                 {2 + index}
               </div>
               (decimal) que é equivalente ao
               {element.map((element, index) => {
                 return (
                   <div
-                    className="binary-number rounded-lg border py-2 px-4"
+                    className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4"
                     key={index}
                   >
                     {element}
@@ -306,11 +306,11 @@ const BaseConverter: NextPage = () => {
               className="flex items-center gap-2 rounded-lg bg-black/80 p-2 text-white"
               key={index}
             >
-              <div className="binary-number rounded-lg border py-2 px-4">
+              <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">
                 {10 + index}
               </div>
               (decimal) que é equivalente ao
-              <div className="binary-number rounded-lg border py-2 px-4">
+              <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">
                 {element}
               </div>
               (hexadecimal), <br />
@@ -319,39 +319,39 @@ const BaseConverter: NextPage = () => {
         })}
         <div className="flex items-center gap-2">
           ao ultrapassar o
-          <div className="binary-number rounded-lg border py-2 px-4">f</div>
+          <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">f</div>
           (hexadecimal) é necessario adicionar +1 quadradinho:
         </div>
         <div className="flex items-center gap-2 rounded-lg bg-black/80 p-2 text-white">
-          <div className="binary-number rounded-lg border py-2 px-4">1</div>
-          <div className="binary-number rounded-lg border py-2 px-4">5</div>
+          <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">1</div>
+          <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">5</div>
           (decimal) é igual a
-          <div className="binary-number rounded-lg border py-2 px-4">F</div>
+          <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">F</div>
           (hexadecimal)
         </div>
         <div className="flex items-center gap-2 rounded-lg bg-black/80 p-2 text-white">
-          <div className="binary-number rounded-lg border py-2 px-4">1</div>
-          <div className="binary-number rounded-lg border py-2 px-4">6</div>
+          <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">1</div>
+          <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">6</div>
           (decimal) é igual a
-          <div className="binary-number rounded-lg border py-2 px-4">1</div>
-          <div className="binary-number rounded-lg border py-2 px-4">0</div>
+          <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">1</div>
+          <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">0</div>
           (hexadecimal)
         </div>
         <div className="flex items-center gap-2 rounded-lg bg-black/80 p-2 text-white">
-          <div className="binary-number rounded-lg border py-2 px-4">3</div>
-          <div className="binary-number rounded-lg border py-2 px-4">1</div>
+          <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">3</div>
+          <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">1</div>
           (decimal) é igual a
-          <div className="binary-number rounded-lg border py-2 px-4">1</div>
-          <div className="binary-number rounded-lg border py-2 px-4">F</div>
+          <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">1</div>
+          <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">F</div>
           (hexadecimal)
         </div>
         <div className="flex items-center gap-2 rounded-lg bg-black/80 p-2 text-white">
-          <div className="binary-number rounded-lg border py-2 px-4">3</div>
-          <div className="binary-number rounded-lg border py-2 px-4">2</div>
+          <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">3</div>
+          <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">2</div>
           (decimal) é igual a
-          <div className="binary-number rounded-lg border py-2 px-4">2</div>
-          <div className="binary-number rounded-lg border py-2 px-4">0</div>
-          <div className="binary-number rounded-lg border py-2 px-4">0</div>
+          <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">2</div>
+          <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">0</div>
+          <div className="binary-number rounded-lg  border border-[rgba(0,0,0,0.5)] py-2 px-4">0</div>
           (hexadecimal)
         </div>
       </div>

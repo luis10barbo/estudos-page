@@ -117,7 +117,7 @@ const BaseConverter: NextPage = () => {
 
   return (
     <main
-      className="flex min-h-screen flex-col items-center justify-center p-2 text-xl"
+      className="min-w-fit w-full  flex min-h-screen flex-col items-center justify-center p-2 text-xl"
       style={{ fontFamily: "sans-serif" }}
     >
       <h2 className="mb-10 text-center">

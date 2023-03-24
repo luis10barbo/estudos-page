@@ -71,8 +71,8 @@ const BaseConverter: NextPage = () => {
   }
 
   const [conversionMode, setConversionMode] = useState<Conversion>({
-    from: "binary",
-    to: "decimal",
+    from: "decimal",
+    to: "binary",
   });
   // const [errorMessage, setErrorMessage] = useState("");
   const [inputValue, setInputValue] = useState("0");

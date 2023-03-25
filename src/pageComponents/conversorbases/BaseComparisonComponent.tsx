@@ -6,7 +6,8 @@ export const BaseComparisonComponent: React.FC<{
   numberStrings: string[];
   firstBaseName: BaseTypes;
   secondBaseName: BaseTypes;
-}> = ({ numberStrings, firstBaseName, secondBaseName }) => {
+  flexCol?: boolean;
+}> = ({ numberStrings, firstBaseName, secondBaseName, flexCol }) => {
   return (
     <div className="flex flex-col gap-2">
       {numberStrings.map((element, index) => {
@@ -19,20 +20,27 @@ export const BaseComparisonComponent: React.FC<{
 
         return (
           <div
-            className="flex  items-center justify-center gap-2 rounded-lg bg-white p-2 text-black"
+            style={{
+              ...(flexCol && { flexDirection: flexCol ? "column" : "row" }),
+            }}
+            className="flex flex-wrap items-center justify-center gap-2 rounded-lg bg-white p-2 text-black"
             key={index}
           >
-            <NumberStringComponent
-              baseName={firstBaseName}
-              numberString={firstNumber}
-              borderColor={"rgba(0,0,0,0.5)"}
-            />{" "}
+            <div className="number-string-component flex flex-wrap items-center justify-center gap-2">
+              <NumberStringComponent
+                baseName={firstBaseName}
+                numberString={firstNumber}
+                borderColor={"rgba(0,0,0,0.5)"}
+              />{" "}
+            </div>
             equivale a{" "}
-            <NumberStringComponent
-              baseName={secondBaseName}
-              numberString={secondNumber}
-              borderColor={"rgba(0,0,0,0.5)"}
-            />
+            <div className="number-string-component flex flex-wrap items-center justify-center gap-2">
+              <NumberStringComponent
+                baseName={secondBaseName}
+                numberString={secondNumber}
+                borderColor={"rgba(0,0,0,0.5)"}
+              />
+            </div>
           </div>
         );
       })}

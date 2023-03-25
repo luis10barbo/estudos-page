@@ -14,7 +14,6 @@ import {
   getBase,
   numberStringToStringArray,
   parseIntFromNumberString,
-  removeIllegalCharsFromNumberString,
   sumToNumberString,
 } from "./conversorPageUtils";
 
@@ -67,14 +66,14 @@ const BaseConverterComponent: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className="flex min-h-screen flex-col">
       <div
         id="convertion-holder"
         className="flex  w-full flex-col flex-wrap items-center gap-2"
       >
-        <div className="flex w-full flex-wrap items-center justify-center bg-black/80 p-4 text-white">
+        <div className="flex w-full flex-wrap items-center justify-center gap-2 bg-[rgb(90,90,90)] p-4 text-white">
           <p className="flex items-center gap-2">
-            Converter
+            De
             <select
               value={conversionMode.from}
               onChange={(event) => {
@@ -95,14 +94,14 @@ const BaseConverterComponent: React.FC = () => {
                   event.target.value as SetStateAction<BaseTypes>
                 );
               }}
-              className="rounded-md border border-[rgba(0,0,0,0.5)] bg-[rgb(90,90,90)] p-2 "
+              className="rounded-md border border-[rgba(255,255,255,0.8)] bg-[rgb(90,90,90)] p-2 "
             >
               <option value={"decimal"}>Decimal</option>
               <option value={"binary"}>Binario</option>
               <option value={"hexadecimal"}>Hexadecimal</option>
             </select>
           </p>
-          <p className="ml-4 flex items-center gap-2">
+          <p className=" flex flex-nowrap items-center gap-2">
             Para
             <select
               value={conversionMode.to}
@@ -116,7 +115,7 @@ const BaseConverterComponent: React.FC = () => {
                   event.target.value as SetStateAction<BaseTypes>
                 );
               }}
-              className="rounded-md  border border-[rgba(0,0,0,0.5)] bg-[rgb(90,90,90)] p-2 "
+              className="rounded-md  border border-[rgba(255,255,255,0.8)] bg-[rgb(90,90,90)] p-2 "
             >
               <option value={"decimal"}>Decimal</option>
               <option value={"binary"}>Binario</option>
@@ -124,7 +123,7 @@ const BaseConverterComponent: React.FC = () => {
             </select>
           </p>
         </div>
-        <div className=" flex min-h-[40vh] w-full flex-col  justify-center gap-8 border-[rgba(0,0,0,0.5)] p-8">
+        <div className="flex min-h-[40vh] w-full flex-col justify-center  gap-8 border-[rgba(0,0,0,0.5)] p-8 text-lg">
           <div
             id="typing-restriction"
             className="flex w-full items-center justify-center gap-2"
@@ -144,7 +143,7 @@ const BaseConverterComponent: React.FC = () => {
 
           <div className=" flex w-full flex-nowrap justify-center gap-2 ">
             <button
-              className="rounded-lg  border border-[rgba(0,0,0,0.5)] bg-white py-1 px-4"
+              className="rounded-lg  bg-[rgb(90,90,90)]  from-blue-700 to-purple-600 py-1 px-5 text-white hover:from-blue-500 hover:to-purple-400"
               onClick={() => {
                 sumNumberToInput(-1);
               }}
@@ -155,7 +154,7 @@ const BaseConverterComponent: React.FC = () => {
               id="decimal-string"
               className=" rounded-lg  border border-[rgba(0,0,0,0.5)] p-2 text-center outline-none"
               type="text"
-              style={{ width: "10rem" }}
+              style={{ width: "8rem" }}
               value={inputValue}
               onFocus={(e) => e.target.select()}
               onChange={() => {
@@ -164,7 +163,7 @@ const BaseConverterComponent: React.FC = () => {
               ref={inputRef}
             />
             <button
-              className="rounded-lg  border border-[rgba(0,0,0,0.5)] bg-white py-1 px-4"
+              className="rounded-lg  bg-[rgb(90,90,90)] from-blue-700 to-purple-600 py-1 px-4 text-white hover:from-blue-500 hover:to-purple-400"
               onClick={() => {
                 sumNumberToInput(1);
               }}
@@ -176,12 +175,13 @@ const BaseConverterComponent: React.FC = () => {
             id="result-holder"
             className="flex w-full flex-col items-center gap-2 "
           >
-            <div className="flex w-full justify-center gap-1 ">
+            <div className="flex w-full  justify-center gap-1">
               {inputValue.at(0) !== "-" ? (
                 <BaseComparisonComponent
                   firstBaseName={conversionMode.from}
                   secondBaseName={conversionMode.to}
                   numberStrings={[inputValue]}
+                  flexCol={true}
                 />
               ) : (
                 "Operação com numeros negativos nao implementada ainda..."
@@ -191,10 +191,40 @@ const BaseConverterComponent: React.FC = () => {
         </div>
       </div>
 
-      <div className="m-12 ">
+      <div className="m-4 my-auto flex flex-1 flex-col justify-evenly">
         <BinaryExplanationComponent />
-        TODO: atualizar estilo Explicação hexadecimal
         <HexadecimalExplanationComponent />
+      </div>
+      <div
+        id="planned-updates"
+        className="mt-auto flex w-full flex-col items-center gap-2 bg-[rgb(90,90,90)] p-6 text-white/95"
+      >
+        <p className="title text-2xl">Atualizações planejadas</p>
+        {[
+          {
+            title: "Adicionar binarios e hexadecimais negativos",
+            status: "Em Espera",
+          },
+          {
+            title: "Atualizar estilo explicação hexadecimal",
+            status: "Em espera",
+          },
+        ].map((element, index) => {
+          return (
+            <div
+              className="flex w-full flex-wrap items-center justify-center border-b p-4"
+              key={index}
+            >
+              <p className=" text-center" key={index}>
+                {element.title}
+              </p>
+              <div className="ml-auto mr-auto"></div>
+              <p className="rounded-lg bg-white p-2 text-sm capitalize text-black">
+                Status: {element.status}
+              </p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

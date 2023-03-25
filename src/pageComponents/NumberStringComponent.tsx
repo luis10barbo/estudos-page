@@ -17,7 +17,7 @@ export const NumberStringComponent: React.FC<{
           <div
             key={index}
             style={{ ...(borderColor && { borderColor: borderColor }) }}
-            className="binary-number rounded-lg  border border-black/90 bg-white py-2 px-4 text-black"
+            className="binary-number flex rounded-lg border border-black/90 bg-white py-2 px-4 text-black "
           >
             {char}
           </div>

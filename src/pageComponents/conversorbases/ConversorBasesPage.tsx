@@ -35,7 +35,6 @@ const BaseConverterComponent: React.FC = () => {
   useEffect(() => {
     runConvertion();
   }, [inputValue, conversionMode.to]);
-  useEffect(() => {}, [conversionMode.from]);
 
   function runConvertion() {
     const inputValueInt = parseIntFromNumberString(

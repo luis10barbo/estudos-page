@@ -54,11 +54,9 @@ export const BinaryExplanationComponent: React.FC = () => {
             firstBaseName="decimal"
             secondBaseName="binary"
           />
-          <div className="flex items-center justify-center gap-2">
-            mas para o
-            <NumberStringComponent baseName={"decimal"} numberString="2" /> é
-            necessario adicionar +1 quadradinho:
-          </div>
+          Sendo assim, para o
+          <NumberStringComponent baseName={"decimal"} numberString="2" /> é
+          necessario adicionar +1 quadradinho
           <BaseComparisonComponent
             numberStrings={["0", "1", "2", "3"]}
             firstBaseName="decimal"

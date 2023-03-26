@@ -1,4 +1,5 @@
 import { type SetStateAction, useEffect, useRef, useState } from "react";
+import PlannedUpdatesComponent from "~/components/PlannedUpdatesComponent";
 import { objectChildState } from "~/utils/react";
 import type {
   ConversionObject,
@@ -196,37 +197,19 @@ const BaseConverterComponent: React.FC = () => {
         <BinaryExplanationComponent />
         <HexadecimalExplanationComponent />
       </div>
-      <div
-        id="planned-updates"
-        className="mt-auto flex w-full flex-col items-center gap-2 bg-[rgb(90,90,90)] p-6 text-white/95"
-      >
-        <p className="title text-2xl">Atualizações planejadas</p>
-        {[
+
+      <PlannedUpdatesComponent
+        updates={[
           {
             title: "Adicionar binarios e hexadecimais negativos",
-            status: "Em Espera",
+            status: "onhold",
           },
           {
             title: "Atualizar estilo explicação hexadecimal",
-            status: "Em espera",
+            status: "completed",
           },
-        ].map((element, index) => {
-          return (
-            <div
-              className="flex w-full flex-wrap items-center justify-center border-b p-4"
-              key={index}
-            >
-              <p className=" text-center" key={index}>
-                {element.title}
-              </p>
-              <div className="ml-auto mr-auto"></div>
-              <p className="rounded-lg bg-white p-2 text-sm capitalize text-black">
-                Status: {element.status}
-              </p>
-            </div>
-          );
-        })}
-      </div>
+        ]}
+      />
     </div>
   );
 };

@@ -94,7 +94,7 @@ const BaseConverterComponent: React.FC = () => {
                   event.target.value as SetStateAction<BaseTypes>
                 );
               }}
-              className="rounded-md border border-[rgba(255,255,255,0.8)] bg-[rgb(90,90,90)] p-2 "
+              className="rounded-md border border-[rgba(255,255,255,0.8)]  bg-[rgb(55,55,55)] p-2"
             >
               <option value={"decimal"}>Decimal</option>
               <option value={"binary"}>Binario</option>
@@ -115,7 +115,7 @@ const BaseConverterComponent: React.FC = () => {
                   event.target.value as SetStateAction<BaseTypes>
                 );
               }}
-              className="rounded-md  border border-[rgba(255,255,255,0.8)] bg-[rgb(90,90,90)] p-2 "
+              className="rounded-md  border border-[rgba(255,255,255,0.8)]   bg-[rgb(55,55,55)] p-2 "
             >
               <option value={"decimal"}>Decimal</option>
               <option value={"binary"}>Binario</option>
@@ -141,18 +141,10 @@ const BaseConverterComponent: React.FC = () => {
             })()}
           </div>
 
-          <div className=" flex w-full flex-nowrap justify-center gap-2 ">
-            <button
-              className="rounded-lg  bg-[rgb(90,90,90)]  from-blue-700 to-purple-600 py-1 px-5 text-white hover:from-blue-500 hover:to-purple-400"
-              onClick={() => {
-                sumNumberToInput(-1);
-              }}
-            >
-              -
-            </button>
+          <div className=" flex w-full flex-wrap justify-center gap-2 ">
             <input
               id="decimal-string"
-              className=" rounded-lg  border border-[rgba(0,0,0,0.5)] p-2 text-center outline-none"
+              className=" max-w-screen-lg  flex-1 rounded-lg border border-[rgba(0,0,0,0.5)] p-2 text-center outline-none"
               type="text"
               style={{ width: "8rem" }}
               value={inputValue}
@@ -162,20 +154,30 @@ const BaseConverterComponent: React.FC = () => {
               }}
               ref={inputRef}
             />
-            <button
-              className="rounded-lg  bg-[rgb(90,90,90)] from-blue-700 to-purple-600 py-1 px-4 text-white hover:from-blue-500 hover:to-purple-400"
-              onClick={() => {
-                sumNumberToInput(1);
-              }}
-            >
-              +
-            </button>
+            <div className="flex flex-nowrap gap-2">
+              <button
+                className="min-w-[2.5rem]  rounded-lg bg-[rgb(90,90,90)] text-white hover:bg-[rgb(130,130,130)]"
+                onClick={() => {
+                  sumNumberToInput(-1);
+                }}
+              >
+                -
+              </button>
+              <button
+                className="hov  min-w-[2.5rem] rounded-lg bg-[rgb(90,90,90)] py-1 text-white hover:bg-[rgb(130,130,130)]"
+                onClick={() => {
+                  sumNumberToInput(1);
+                }}
+              >
+                +
+              </button>
+            </div>
           </div>
           <div
             id="result-holder"
             className="flex w-full flex-col items-center gap-2 "
           >
-            <div className="flex w-full  justify-center gap-1">
+            <div className="flex w-full flex-col justify-center gap-1">
               {inputValue.at(0) !== "-" ? (
                 <BaseComparisonComponent
                   firstBaseName={conversionMode.from}

@@ -25,11 +25,15 @@ export const BinaryExplanationComponent: React.FC = () => {
           reverseState(setFocused);
         }}
       >
-        Explicação Binario
+        Explicação Binario ▾
       </div>
       <div
         style={{
-          height: isFocused ? getExplanationHeight() + "px" : "0",
+          ...(getExplanationHeight() && {
+            height: isFocused
+              ? (getExplanationHeight() as number).toString() + "px"
+              : "0",
+          }),
         }}
         className={`content  w-full overflow-hidden px-4 duration-75 ${
           isFocused ? "h-fit overflow-auto border-t" : "h-0"
@@ -38,7 +42,7 @@ export const BinaryExplanationComponent: React.FC = () => {
         <div
           ref={explanationRef}
           id="binary-explanation"
-          className="flex flex-col gap-2  p-4"
+          className="flex flex-col items-center gap-2 p-4"
         >
           <br />
           Cada quadradinho no binário, <br />
@@ -80,11 +84,9 @@ export const HexadecimalExplanationComponent: React.FC = () => {
   return (
     <>
       <div
-        // style={{
-        //   background:
-        //     "linear-gradient(to top right, rgb(56, 0, 255), rgb(141, 109, 255))",
-        // }}
-        className="binary-explanation   mb-4 flex w-full flex-col  items-center rounded-xl bg-gradient-to-tr from-blue-800  to-purple-600 text-center text-white"
+        className={`mb-4 flex w-full flex-col items-center rounded-xl bg-gradient-to-tr from-blue-800 to-purple-600 text-center text-white  duration-75 ${
+          isFocused ? "" : "hover:from-blue-600 hover:to-purple-400"
+        }`}
       >
         <div
           className="w-full cursor-pointer select-none border-white p-4 font-bold"
@@ -92,20 +94,24 @@ export const HexadecimalExplanationComponent: React.FC = () => {
             reverseState(setFocused);
           }}
         >
-          Explicação Hexadecimal
+          Explicação Hexadecimal ▾
         </div>
         <div
           style={{
-            height: isFocused ? "0" : getExplanationHeight() + "px",
+            ...(getExplanationHeight() && {
+              height: isFocused
+                ? (getExplanationHeight() as number).toString() + "px"
+                : "0",
+            }),
           }}
           className={`content  w-full overflow-hidden px-4 duration-75 ${
-            isFocused ? "h-0" : "h-fit border-t"
+            isFocused ? "border-t" : "h-0"
           }`}
         >
           <div
             ref={explanationRef}
-            id="binary-explanation"
-            className="flex flex-col gap-2 p-4"
+            id="hexadecimal-explanation"
+            className="flex flex-col items-center gap-2 p-4"
           >
             Cada quadradinho no hexadecimal suporta,
             <br /> como no decimal, algorismos entre 0-9 (hex: 0-9).

@@ -1,4 +1,4 @@
-import { BaseTypes } from "~/types/conversorBases/conversorBasesTypes";
+import type { BaseTypes } from "~/types/conversorBases/conversorBasesTypes";
 import { NumberStringComponent } from "../NumberStringComponent";
 import { convertNumberStringToBase } from "./conversorPageUtils";
 
@@ -7,9 +7,12 @@ export const BaseComparisonComponent: React.FC<{
   firstBaseName: BaseTypes;
   secondBaseName: BaseTypes;
   flexCol?: boolean;
-}> = ({ numberStrings, firstBaseName, secondBaseName, flexCol }) => {
+}> = ({ numberStrings, firstBaseName, secondBaseName, flexCol = true }) => {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex gap-2 "
+    style={{
+      ...(flexCol && { flexDirection: flexCol ? "column" : "row" }),
+    }}>
       {numberStrings.map((element, index) => {
         const firstNumber = element;
         const secondNumber = convertNumberStringToBase(
@@ -20,9 +23,7 @@ export const BaseComparisonComponent: React.FC<{
 
         return (
           <div
-            style={{
-              ...(flexCol && { flexDirection: flexCol ? "column" : "row" }),
-            }}
+            
             className="flex flex-wrap items-center justify-center gap-2 rounded-lg bg-white p-2 text-black"
             key={index}
           >

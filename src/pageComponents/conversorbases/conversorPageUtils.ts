@@ -1,4 +1,4 @@
-import { BaseTypes } from "~/types/conversorBases/conversorBasesTypes";
+import type { BaseTypes } from "~/types/conversorBases/conversorBasesTypes";
 
 export function getBase(baseName: BaseTypes) {
   switch (baseName) {

@@ -53,7 +53,7 @@ export function removeIllegalCharsFromNumberString(
       break;
   }
 
-  return validString !== "" ? validString : "0";
+  return validString !== "" ? validString.replace(/^0*/g, "") : "0";
 }
 
 export function sumToNumberString(

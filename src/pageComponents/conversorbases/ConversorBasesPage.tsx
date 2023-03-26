@@ -14,6 +14,7 @@ import {
   getBase,
   numberStringToStringArray,
   parseIntFromNumberString,
+  removeIllegalCharsFromNumberString,
   sumToNumberString,
 } from "./conversorPageUtils";
 
@@ -53,15 +54,13 @@ const BaseConverterComponent: React.FC = () => {
   }
 
   function updateInputValue() {
-    const newValue = inputRef.current?.value;
-    if (newValue === undefined) return;
+    if (inputRef.current?.value === undefined) return;
 
-    if (inputValue === "0") {
-      return setInputValue(newValue.replace("0", ""));
-    } else if (newValue === "") {
-      setInputValue("0");
-      return;
-    }
+    const newValue = removeIllegalCharsFromNumberString(
+      inputRef.current?.value,
+      conversionMode.from
+    );
+
     setInputValue(newValue);
   }
 

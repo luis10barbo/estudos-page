@@ -4,7 +4,7 @@ import { NumberStringComponent } from "../NumberStringComponent";
 import BaseComparisonComponent from "./BaseComparisonComponent";
 
 export const BinaryExplanationComponent: React.FC = () => {
-  const [isFocused, setFocused] = useState(true);
+  const [isFocused, setFocused] = useState(false);
 
   const explanationRef = useRef<HTMLDivElement>(null);
 
@@ -72,7 +72,7 @@ export const BinaryExplanationComponent: React.FC = () => {
 };
 
 export const HexadecimalExplanationComponent: React.FC = () => {
-  const [isFocused, setFocused] = useState(true);
+  const [isFocused, setFocused] = useState(false);
 
   const explanationRef = useRef<HTMLDivElement>(null);
 

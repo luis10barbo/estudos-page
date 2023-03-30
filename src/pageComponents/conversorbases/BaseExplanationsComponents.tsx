@@ -115,7 +115,7 @@ export const HexadecimalExplanationComponent: React.FC = () => {
             <br /> como no decimal, algorismos entre 0-9 (hex: 0-9).
             <br /> Contudo, ele vai além: suportando também o 10-15 (hex: a-f)
             <BaseComparisonComponent
-              numberStrings={["10", "11", "12", "13", "14", "15"]}
+              numberStrings={["8","9","10", "11", "12", "13", "14", "15"]}
               firstBaseName="decimal"
               secondBaseName="hexadecimal"
             />

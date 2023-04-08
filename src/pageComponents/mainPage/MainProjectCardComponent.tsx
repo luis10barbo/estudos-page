@@ -59,11 +59,11 @@ const MainProjectCardComponent: React.FC<{
       >
         <Link
           href={href}
-          className={`h-fit w-fit ${!enabled && "pointer-events-none"}`}
+          className={`h-fit w-fit ${!enabled ? "pointer-events-none" : ""}`}
         >
           <div
             className={`card-border flex h-[230px] w-[230px] rounded-xl p-[1px] duration-75 ${
-              enabled && "hover:shadow-[0_0_5px_2px_white]"
+              enabled ? "hover:shadow-[0_0_5px_2px_white]" : ""
             }`}
             style={{
               background:

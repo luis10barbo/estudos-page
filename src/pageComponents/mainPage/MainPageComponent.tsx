@@ -1,4 +1,3 @@
-import Link from "next/link";
 import MainProjectCardComponent from "./MainProjectCardComponent";
 
 const MainPageComponent: React.FC = () => {

@@ -1,4 +1,4 @@
-import { PageUpdates } from "~/types/conversorBases/plannedUpdatesTypes";
+import type { PageUpdates } from "~/types/conversorBases/plannedUpdatesTypes";
 
 const PlannedUpdatesComponent: React.FC<{ updates: PageUpdates[] }> = ({
   updates,
